@@ -20,8 +20,8 @@ while True:
   user_action = input(
         '\n\nSELECT OPTION:\n' 
         '1: Open ticket.\n'
-        '2: Reopen resolve ticket.\n' 
-        '3: Show all tickets.\n' 
+        '2: Show all tickets.\n' 
+        '3: Reopen resolve ticket.\n' 
         '4: Resolve ticket by number.\n'
         '5: Display ticket statistics\n')
   
@@ -34,17 +34,26 @@ while True:
      # if Issue is reset password incorporate the new password in the new ticket
      # using the class TICKET
      if description == 'y':
-        ticket = Ticket(operator_name, callerID, caller_email, "Password Reset")
-        ticket.respond(f'New password generated')
+        ticket = Ticket(operator_name, callerID,  caller_email, "Password Reset")
+        new_password = ticket.new_password()
+        print('\n New password generated.\n'
+              f'Your new password is {new_password} \n'
+              'Your ticket has been resolved and close')
+     
      
      else:
         description = input('Describe your issue: ')
         ticket = Ticket(operator_name, callerID, caller_email, description)
+        print("\n"
+              "Ticket submitted successfully!\n"
+              "The details of your ticket are:\n"
+              f'{ticket}')
     
-     Ticket.ticket_start_number += 1    
-     print("Ticket submitted successfully!")
+    
+     
+ 
 
     
 
 
-  new_ticket = Ticket(operator_name, callerID, caller_email, description)
+  # new_ticket = Ticket(operator_name, callerID, caller_email, description)

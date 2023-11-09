@@ -1,3 +1,4 @@
+import random
 # Develop a Help Desk ticketing system prototype. 
 
 
@@ -17,9 +18,9 @@ class Ticket:
       # Ticket response
 
   # function to open a ticket
-  def __init__(self, user_staff_id, user_name, user_email, description ):
-    self.user_staff_id = user_staff_id
+  def __init__(self, user_name,user_staff_id, user_email, description ):
     self.user_name = user_name 
+    self.user_staff_id = user_staff_id
     self.user_email = user_email
     self.description = description
     self.ticket_number = str(Ticket.ticket_start_number)
@@ -28,20 +29,28 @@ class Ticket:
     self.response = "Not yet provided"
 
     Ticket.ticket_start_number += 1
+
+  # create password new password
+  def new_password(self):
+     random_five_numbers = random.randint(1000000,9999999)
+     password = f'{self.user_name}{random_five_numbers}'
+     return password
+     
+
   
   # function to respond ticket
 
   # function to reopen ticket
 
   
-
+  # Show the ticket 
   def __str__(self):
-      return f"Ticket Number: {self.ticket_number}\n" \
+      return f"Caller Name: {self.user_name}\n" \
+             f"Ticket Number: {self.ticket_number}\n" \
              f"Ticket Creator: {self.user_staff_id}\n" \
-             f"Caller Name: {self.user_name}\n" \
-             f"Caller Email: {self._email}\n" \
+             f"Caller Email: {self.user_email}\n" \
              f"Description: {self.description}\n" \
-             f"Comments: {', '.join(self.comments)}\n"\
+             f"Comments: {', '.join(self.comment)}\n"\
             #  f"Status: {self.status}\n" \
   
   
