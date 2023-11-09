@@ -36,8 +36,6 @@ class Ticket:
      password = f'{self.user_name}{random_five_numbers}'
      return password
      
-
-  
   # function to respond ticket
 
   # function to reopen ticket
@@ -45,13 +43,14 @@ class Ticket:
   
   # Show the ticket 
   def __str__(self):
-      return f"Caller Name: {self.user_name}\n" \
-             f"Ticket Number: {self.ticket_number}\n" \
-             f"Ticket Creator: {self.user_staff_id}\n" \
-             f"Caller Email: {self.user_email}\n" \
-             f"Description: {self.description}\n" \
-             f"Comments: {', '.join(self.comment)}\n"\
-            #  f"Status: {self.status}\n" \
+      return f"  Caller Name: {self.user_name}\n" \
+             f"  Ticket Number: {self.ticket_number}\n" \
+             f"  Ticket Creator: {self.user_staff_id}\n" \
+             f"  Caller Email: {self.user_email}\n" \
+             f"  Description: {self.description}\n" \
+             f"  Status: {self.status}\n" \
+             f"  Response: {self.response}\n" \
+             f"  Comments: {', '.join(self.comment)}\n"\
   
   
 
