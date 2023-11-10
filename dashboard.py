@@ -36,10 +36,7 @@ while True:
      if description == 'y':
         ticket = Ticket(operator_name, callerID,  caller_email, "Password Reset")
         new_password = ticket.new_password()
-        print("--------------------------------\n"
-              '\n New password generated.\n'
-             f'   Your new password is {new_password} \n'
-              '   Your ticket has been resolved and close')
+        
      
      
      else:
@@ -49,6 +46,13 @@ while True:
               "Ticket submitted successfully!\n"
               "The details of your ticket are:\n"
               f'{ticket}')
+  
+  elif user_action == "2":
+     print("--------------------------------\n"
+              '\n List of Tickets.\n')
+     for i in Ticket.add_ticket:
+        print(i)
+     
     
     
      

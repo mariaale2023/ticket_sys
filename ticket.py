@@ -6,6 +6,7 @@ import random
 class Ticket:
   # Internal Tickets assignation numbers start from 2000. 
   ticket_start_number = 2000
+  list_of_tickets = []
 
   # Tickets include as information:  
       # Staff ID = user_staff_id
@@ -27,15 +28,22 @@ class Ticket:
     self.status = "Open"
     self.comment = []
     self.response = "Not yet provided"
-
+    
+    # Additon 1 to "Open" counter ticket
     Ticket.ticket_start_number += 1
+
+    # Append new ticket to the list of tickets
+    self.add_ticket = Ticket.list_of_tickets.append()
 
   # create password new password
   def new_password(self):
      random_five_numbers = random.randint(1000000,9999999)
      password = f'{self.user_name}{random_five_numbers}'
      return password
-     
+
+  # show the list
+  #     
+  
   # function to respond ticket
 
   # function to reopen ticket
@@ -53,23 +61,6 @@ class Ticket:
              f"  Comments: {', '.join(self.comment)}\n"\
   
   
-
-
-  
-
-
-
-
-  
-
-    
-
-    
-
-
-
-
-
 
 
 # Ability to respond to tickets, with the generation of new passwords for "Password Change" requests. 
