@@ -69,12 +69,12 @@ while True:
      print("--------------------------------\n")
      input_number_ticket = input("Insert the number of ticket?\n")
      solve_coment = input("Insert your coment about your resolution\n")
-     input_number_ticket = int(input_number_ticket)
+     input_number_ticket = int(c)
 
      # Check if the ticket number is within the valid range. 
      #remember the list of ticket start from 2000
-     if 0 <= input_number_ticket - 1 < len(Ticket.list_of_tickets):
-        Ticket.list_of_tickets[input_number_ticket - 1 ].resolve_ticket(solve_coment) 
+     if 0 <= input_number_ticket - 2001 < len(Ticket.list_of_tickets):
+        Ticket.list_of_tickets[input_number_ticket - 2001 ].resolve_ticket(solve_coment) 
         print(f"\nTicket {input_number_ticket} resolved successfully.\n")
      else:
         print(f"\nInvalid ticket number: {input_number_ticket}\n")

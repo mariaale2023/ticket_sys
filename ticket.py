@@ -46,7 +46,7 @@ class Ticket:
   def resolve_ticket(self, comment):
      self.status = 'Close'
      self.response = 'Ticket Resolve'
-     self.comment.append({comment})
+     self.comment.append(comment)
 
   # function to reopen ticket
 
