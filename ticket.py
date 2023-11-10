@@ -33,7 +33,7 @@ class Ticket:
     Ticket.ticket_start_number += 1
 
     # Append new ticket to the list of tickets
-    self.add_ticket = Ticket.list_of_tickets.append()
+    Ticket.list_of_tickets.append(self)
 
   # create password new password
   def new_password(self):
@@ -42,7 +42,7 @@ class Ticket:
      return password
 
   # show the list
-  #     
+  
   
   # function to respond ticket
 
