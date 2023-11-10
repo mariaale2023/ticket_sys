@@ -68,16 +68,43 @@ while True:
   elif user_action == "3":
      print("--------------------------------\n")
      input_number_ticket = input("Insert the number of ticket?\n")
-     solved_ticket = input("Enter resolve notes: \n"
-                           "  1. Insert 1 is ticket is Resolve. \n"
-                           "  2. Insert 2 is ticket is Pending for resolution.   \n"
-                           )
-     if solved_ticket == "1":
-        Ticket.response = "This ticket has been resolved"
-        print(Ticket.response)
-     else: 
-        Ticket.response = "This ticket is Pending for resolution"
-        print(Ticket.response)
+     solve_coment = input("Insert your coment about your resolution\n")
+     input_number_ticket = int(input_number_ticket)
+
+     # Check if the ticket number is within the valid range. 
+     #remember the list of ticket start from 2000
+     if 0 <= input_number_ticket - 1 < len(Ticket.list_of_tickets):
+        Ticket.list_of_tickets[input_number_ticket - 1 ].resolve_ticket(solve_coment) 
+        print(f"\nTicket {input_number_ticket} resolved successfully.\n")
+     else:
+        print(f"\nInvalid ticket number: {input_number_ticket}\n")
+    
+
+     
+    
+    #  solved_ticket = input("Enter resolve notes: \n"
+    #                        "  1. Insert 1 is ticket is Resolve. \n"
+    #                        "  2. Insert 2 is ticket is Pending for resolution.   \n"
+    #                        )
+    #  if solved_ticket == "1":
+    #     # found_ticket = [ticket for ticket in Ticket.list_of_tickets 
+    #     #                  if ticket.ticket_number == input_number_ticket]
+
+    #     #store the ticket object if a ticket with the specified number is found during the loop.
+    #     found_ticket = None
+    #     for current_ticket in Ticket.list_of_tickets:
+    #        if current_ticket.ticket_number == input_number_ticket:
+    #           found_ticket = current_ticket
+        
+    #     if found_ticket:
+    #        found_ticket.response = "This ticket has been resolved"
+    #        found_ticket.status = "close"
+
+    #        print(f"\nTicket {input_number_ticket} resolved successfully.\n")
+           
+    #     else: 
+    #        Ticket.response = "This ticket is Not found"
+    #        print(Ticket.response)
      
 
 

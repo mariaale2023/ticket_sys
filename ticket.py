@@ -40,11 +40,13 @@ class Ticket:
      random_five_numbers = random.randint(1000000,9999999)
      password = f'{self.user_name}{random_five_numbers}'
      return password
+  
 
- 
-  
-  
   # function to respond ticket
+  def resolve_ticket(self, comment):
+     self.status = 'Close'
+     self.response = 'Ticket Resolve'
+     self.comment.append({comment})
 
   # function to reopen ticket
 
