@@ -18,12 +18,15 @@ print("\n\nWelcome to Service Desk")
 
 while True:
   user_action = input(
-        '\n\nSELECT OPTION:\n' 
+        '--------------------------------\n'
+        'SELECT OPTION:\n' 
         '1: Open ticket.\n'
         '2: Show all tickets.\n' 
-        '3: Reopen resolve ticket.\n' 
-        '4: Resolve ticket by number.\n'
-        '5: Display ticket statistics\n')
+        '3: Resolve ticket by number.\n'
+        '4: Reopen resolve ticket.\n' 
+        '5: Display ticket statistics\n'
+        '--------------------------------\n')
+  
   
   if user_action == "1":
      operator_name = input('Enter your name: ')
@@ -40,7 +43,7 @@ while True:
                   '\n New password generated.\n'
                   f'   Your new password is {new_password} \n'
                   '    Your ticket has been resolved and close')
-        
+    
      
      
      else:
@@ -50,7 +53,10 @@ while True:
               "Ticket submitted successfully!\n"
               "The details of your ticket are:\n"
               f'{ticket}')
-  
+        
+     
+
+   # Show the list of Tickets
   elif user_action == "2":
      print("--------------------------------\n"
               '\n List of Tickets.\n')
@@ -58,7 +64,28 @@ while True:
         print(i)
      print("--------END LIST TICKETS---------\n")
      
-    
+   # Resolve ticket by number
+  elif user_action == "3":
+     print("--------------------------------\n")
+     input_number_ticket = input("Insert the number of ticket?\n")
+     solved_ticket = input("Enter resolve notes: \n"
+                           "  1. Insert 1 is ticket is Resolve. \n"
+                           "  2. Insert 2 is ticket is Pending for resolution.   \n"
+                           )
+     if solved_ticket == "1":
+        Ticket.response = "This ticket has been resolved"
+        print(Ticket.response)
+     else: 
+        Ticket.response = "This ticket is Pending for resolution"
+        print(Ticket.response)
+     
+
+
+
+
+     
+
+     print("\n--------------------------------\n")
     
      
  

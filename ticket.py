@@ -41,7 +41,7 @@ class Ticket:
      password = f'{self.user_name}{random_five_numbers}'
      return password
 
-  # show the list
+ 
   
   
   # function to respond ticket
