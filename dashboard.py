@@ -95,9 +95,11 @@ while True:
         
         print(f"\nTicket {input_number_ticket} REOPEN successfully.\n")
         print("\n--------------------------------\n")
-     else:
-        print(f"\nInvalid ticket number: {input_number_ticket}\n")
+     elif 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets) and Ticket.list_of_tickets[input_number_ticket- 2000].status == "Open":
+        print(f"\nThis Ticket is already Open: {input_number_ticket}\n")
         print("\n--------------------------------\n")
+     else:
+        print(f"It is an invalid number: {input_number_ticket}")
          
   elif user_action == "5":
      statistics = Ticket.get_statistics()
