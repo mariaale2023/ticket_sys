@@ -35,7 +35,16 @@ class Ticket:
     # Append new ticket to the list of tickets
     Ticket.list_of_tickets.append(self)
 
-    
+  # Show the ticket 
+  def __str__(self):
+      return f"  Caller Name: {self.user_name}\n" \
+             f"  Ticket Number: {self.ticket_number}\n" \
+             f"  Ticket Creator: {self.user_staff_id}\n" \
+             f"  Caller Email: {self.user_email}\n" \
+             f"  Description: {self.description}\n" \
+             f"  Status: {self.status}\n" \
+             f"  Response: {self.response}\n" \
+             f"  Comments: {', '.join(self.comment)}\n" 
 
   # create password new password
   def new_password(self):
@@ -51,18 +60,13 @@ class Ticket:
      self.comment.append(comment)
 
   # function to reopen ticket
+  def reopen_ticket(self, comment):
+     self.status = 'Open'
+     self.response = 'Ticket Re-Open'
+     self.comment.append(comment)
 
   
-  # Show the ticket 
-  def __str__(self):
-      return f"  Caller Name: {self.user_name}\n" \
-             f"  Ticket Number: {self.ticket_number}\n" \
-             f"  Ticket Creator: {self.user_staff_id}\n" \
-             f"  Caller Email: {self.user_email}\n" \
-             f"  Description: {self.description}\n" \
-             f"  Status: {self.status}\n" \
-             f"  Response: {self.response}\n" \
-             f"  Comments: {', '.join(self.comment)}\n"\
+  
   
 
   

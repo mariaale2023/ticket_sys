@@ -6,7 +6,10 @@ print("\n\nWelcome to Service Desk")
 ticket1 = Ticket("MAria", "123",  "maria@maria.cl", "Printer")
 ticket2 = Ticket("Ale", "234",  "ale@ale.cl", "Windows")
 ticket3 = Ticket("Jorge", "234",  "jorge@Jorge.cl", "Office365")
-ticket4 = Ticket("George", "234",  "George@George.cl", "Router Internet")
+ticket4_close = Ticket("George", "234",  "George@George.cl", "Router Internet")
+ticket4_close.status = "Close"
+ticket4_close.response = "Test response to close ticket"
+ticket4_close.comment= ['Test comment to close ticket']
 
 
 # def submit_ticket():
@@ -75,40 +78,31 @@ while True:
      input_number_ticket = int(input_number_ticket)
 
      # Check if the ticket number is within the valid range. 
-     #remember the list of ticket start from 2000
+     # remember the list of ticket start from 2000
      if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets):
         solve_coment = input("Insert your coment about your resolution\n")
         Ticket.list_of_tickets[input_number_ticket - 2000 ].resolve_ticket(solve_coment) 
         print(f"\nTicket {input_number_ticket} resolved successfully.\n")
+        print("\n--------------------------------\n")
      else:
         print(f"\nInvalid ticket number: {input_number_ticket}\n")
+        print("\n--------------------------------\n")
+  
+  #Reopen a close ticket
+  elif user_action == "4":
+     print("--------------------------------\n")
+     input_number_ticket = input("Insert the number of ticket that you want to open?\n")
+     input_number_ticket = int(input_number_ticket)
     
-
-     
-    
-    #  solved_ticket = input("Enter resolve notes: \n"
-    #                        "  1. Insert 1 is ticket is Resolve. \n"
-    #                        "  2. Insert 2 is ticket is Pending for resolution.   \n"
-    #                        )
-    #  if solved_ticket == "1":
-    #     # found_ticket = [ticket for ticket in Ticket.list_of_tickets 
-    #     #                  if ticket.ticket_number == input_number_ticket]
-
-    #     #store the ticket object if a ticket with the specified number is found during the loop.
-    #     found_ticket = None
-    #     for current_ticket in Ticket.list_of_tickets:
-    #        if current_ticket.ticket_number == input_number_ticket:
-    #           found_ticket = current_ticket
-        
-    #     if found_ticket:
-    #        found_ticket.response = "This ticket has been resolved"
-    #        found_ticket.status = "close"
-
-    #        print(f"\nTicket {input_number_ticket} resolved successfully.\n")
-           
-    #     else: 
-    #        Ticket.response = "This ticket is Not found"
-    #        print(Ticket.response)
+     if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets) and Ticket.list_of_tickets[input_number_ticket- 2000].status == "Close":
+        reopen_coment = input("Insert your coment about Why is reopen this ticket\n")
+        Ticket.list_of_tickets[input_number_ticket - 2000 ].reopen_ticket(reopen_coment) 
+        print(f"\nTicket {input_number_ticket} REOPEN successfully.\n")
+        print("\n--------------------------------\n")
+     else:
+        print(f"\nInvalid ticket number: {input_number_ticket}\n")
+        print("\n--------------------------------\n")
+         
      
 
 
@@ -116,7 +110,7 @@ while True:
 
      
 
-     print("\n--------------------------------\n")
+     
     
      
  
