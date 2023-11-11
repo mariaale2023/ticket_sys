@@ -30,6 +30,10 @@ class Ticket:
     # Append new ticket to the list of tickets
     Ticket.list_of_tickets.append(self)
 
+    # Instance-specific initialization
+    # self.num_tickets_close = 0
+    # self.num_tickets_open = 1  # Initial value for an open ticket
+
 
     
   
@@ -58,6 +62,7 @@ class Ticket:
      self.comment.append(comment)
      Ticket.num_tickets_close += 1
      Ticket.num_tickets_open -= 1
+    
 
   # function to reopen ticket
   def reopen_ticket(self, comment):
@@ -66,5 +71,11 @@ class Ticket:
      self.comment.append(comment)
      Ticket.num_tickets_close -= 1
      Ticket.num_tickets_open += 1
+     
   
- 
+  @classmethod
+  def get_statistics(cls):
+        return {
+            "num_tickets_submitted": cls.num_tickets_close + cls.num_tickets_open,
+            "num_tickets_resolved": cls.num_tickets_close,
+            "num_tickets_open": cls.num_tickets_open}

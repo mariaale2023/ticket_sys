@@ -9,20 +9,9 @@ ticket3 = Ticket("Jorge", "234",  "jorge@Jorge.cl", "Office365")
 # Close ticket test
 ticket4_close = Ticket("George", "234",  "George@George.cl", "Router Internet")
 ticket4_close.status = "Close"
+ticket4_close.resolve_ticket("Test response to close ticket")
 ticket4_close.response = "Test response to close ticket"
 ticket4_close.comment= ['Test comment to close ticket']
-
-
-# def submit_ticket():
-#     creator_name = input("Enter your name: ")
-#     staff_id = input("Enter your staff ID: ")
-#     contact_email = input("Enter your contact email: ")
-#     description = input("Describe the issue: ")
-
-#     ticket = Ticket(creator_name, staff_id, contact_email, description)
-#     ticket.submit()
-
-#     print("Ticket submitted successfully!")
 
 while True:
   user_action = input(
@@ -74,21 +63,23 @@ while True:
      
    # Resolve ticket by number
   elif user_action == "3":
-     print("--------------------------------\n")
-     input_number_ticket = input("Insert the number of ticket?\n")
-     input_number_ticket = int(input_number_ticket)
+    print("--------------------------------\n")
+    input_number_ticket = input("Insert the number of the ticket you want to resolve?\n")
+    input_number_ticket = int(input_number_ticket)
 
-     # Check if the ticket number is within the valid range. 
-     # remember the list of ticket start from 2000
-     if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets):
-        solve_coment = input("Insert your coment about your resolution\n")
-        Ticket.list_of_tickets[input_number_ticket - 2000 ].resolve_ticket(solve_coment) 
-        Ticket.num_tickets_close += 1
-        Ticket.num_tickets_open -= 1
-        print(f"\nTicket {input_number_ticket} resolved successfully.\n")
+    # Check if the ticket number is within the valid range.
+    # Remember, the list of tickets starts from 2000
+    if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets):
+        ticket_to_resolve = Ticket.list_of_tickets[input_number_ticket - 2000]
+
+        if ticket_to_resolve.status == "Close":
+            print(f"\nTicket {input_number_ticket} is already closed. Cannot resolve again.\n")
+        else:
+            solve_comment = input("Insert your comment about your resolution\n")
+            ticket_to_resolve.resolve_ticket(solve_comment)
+            print(f"\nTicket {input_number_ticket} resolved successfully.\n")
         print("\n--------------------------------\n")
-
-     else:
+    else:
         print(f"\nInvalid ticket number: {input_number_ticket}\n")
         print("\n--------------------------------\n")
   
@@ -101,6 +92,7 @@ while True:
      if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets) and Ticket.list_of_tickets[input_number_ticket- 2000].status == "Close":
         reopen_coment = input("Insert your coment about Why is reopen this ticket\n")
         Ticket.list_of_tickets[input_number_ticket - 2000 ].reopen_ticket(reopen_coment) 
+        
         print(f"\nTicket {input_number_ticket} REOPEN successfully.\n")
         print("\n--------------------------------\n")
      else:
@@ -108,21 +100,15 @@ while True:
         print("\n--------------------------------\n")
          
   elif user_action == "5":
-    print("--------------------------------\n"
-          "Statistics:\n"
-          f"Number of tickets submitted: {Ticket.num_tickets_close + Ticket.num_tickets_open}\n"
-          f"Number of resolved tickets: {Ticket.num_tickets_close}\n"
-          f"Number of open tickets: {Ticket.num_tickets_open}\n"
-          "--------------------------------\n")
-
-
-
-
-     
-
-     
-    
-     
- 
-
-    
+     statistics = Ticket.get_statistics()
+     print("--------------------------------\n"
+              "Statistics:\n"
+              f"Number of tickets submitted: {statistics['num_tickets_submitted']}\n"
+              f"Number of resolved tickets: {statistics['num_tickets_resolved']}\n"
+              f"Number of open tickets: {statistics['num_tickets_open']}\n"
+              "--------------------------------\n")
+  
+  else:
+    print("Exiting the Service Desk. Thanks!")
+    break
+   
