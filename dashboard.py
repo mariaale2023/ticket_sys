@@ -83,8 +83,11 @@ while True:
      if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets):
         solve_coment = input("Insert your coment about your resolution\n")
         Ticket.list_of_tickets[input_number_ticket - 2000 ].resolve_ticket(solve_coment) 
+        Ticket.num_tickets_close += 1
+        Ticket.num_tickets_open -= 1
         print(f"\nTicket {input_number_ticket} resolved successfully.\n")
         print("\n--------------------------------\n")
+
      else:
         print(f"\nInvalid ticket number: {input_number_ticket}\n")
         print("\n--------------------------------\n")
@@ -107,8 +110,8 @@ while True:
   elif user_action == "5":
     print("--------------------------------\n"
           "Statistics:\n"
-          f"Number of tickets submitted: {Ticket.num_tickets_s}\n"
-          f"Number of resolved tickets: {Ticket.num_tickets_resolved}\n"
+          f"Number of tickets submitted: {Ticket.num_tickets_close + Ticket.num_tickets_open}\n"
+          f"Number of resolved tickets: {Ticket.num_tickets_close}\n"
           f"Number of open tickets: {Ticket.num_tickets_open}\n"
           "--------------------------------\n")
 
@@ -123,6 +126,3 @@ while True:
  
 
     
-
-
-  # new_ticket = Ticket(operator_name, callerID, caller_email, description)

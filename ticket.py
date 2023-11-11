@@ -12,16 +12,6 @@ class Ticket:
   num_tickets_open = 0
 
 
-  # Tickets include as information:  
-      # Staff ID = user_staff_id
-      # Name of ticket creator = user_name
-      # Contact email of ticket cretor =    user_email
-      # Description of the issue = description
-      # Ticket number 
-      # Ticket status = open or close
-      # Ticket comments 
-      # Ticket response
-
   # function to open a ticket
   def __init__(self, user_name,user_staff_id, user_email, description ):
     self.user_name = user_name 
@@ -35,10 +25,14 @@ class Ticket:
     
     # Additon 1 to "Open" counter ticket
     Ticket.ticket_start_number += 1
+    Ticket.num_tickets_open += 1
 
     # Append new ticket to the list of tickets
     Ticket.list_of_tickets.append(self)
 
+
+    
+  
   # Show the ticket 
   def __str__(self):
       return f"  Caller Name: {self.user_name}\n" \
@@ -62,38 +56,15 @@ class Ticket:
      self.status = 'Close'
      self.response = 'Ticket Resolve'
      self.comment.append(comment)
-     Ticket.update_stadistic_tickes(self.status)
+     Ticket.num_tickets_close += 1
+     Ticket.num_tickets_open -= 1
 
   # function to reopen ticket
   def reopen_ticket(self, comment):
      self.status = 'Open'
      self.response = 'Ticket Re-Open'
      self.comment.append(comment)
-     Ticket.update_stadistic_tickes(self.status)
+     Ticket.num_tickets_close -= 1
+     Ticket.num_tickets_open += 1
   
-  # Update the Ticket stadistic (total, open , close)
-  def update_stadistic_tickes(self, status):
-     if self.status == "Open":
-        self.num_tickets_open += 1
-     elif status == "Close":
-        self.num_tickets_close += 1 
-
  
-
-  
-  
-  
-
-  
-  
-  
-
-
-# Ability to respond to tickets, with the generation of new passwords for "Password Change" requests. 
-
-# Keep track of ticket statistics, including the number of tickets submitted, resolved, and open. 
-
-# Stakeholders: 
-
-
-
