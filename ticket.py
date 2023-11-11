@@ -35,6 +35,8 @@ class Ticket:
     # Append new ticket to the list of tickets
     Ticket.list_of_tickets.append(self)
 
+    
+
   # create password new password
   def new_password(self):
      random_five_numbers = random.randint(1000000,9999999)
@@ -61,6 +63,9 @@ class Ticket:
              f"  Status: {self.status}\n" \
              f"  Response: {self.response}\n" \
              f"  Comments: {', '.join(self.comment)}\n"\
+  
+
+  
   
   
 
