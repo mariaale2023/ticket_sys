@@ -7,6 +7,10 @@ class Ticket:
   # Internal Tickets assignation numbers start from 2000. 
   ticket_start_number = 2000
   list_of_tickets = []
+  num_tickets_total_submited = 0
+  num_tickets_close = 0
+  num_tickets_open = 0
+
 
   # Tickets include as information:  
       # Staff ID = user_staff_id
@@ -58,12 +62,23 @@ class Ticket:
      self.status = 'Close'
      self.response = 'Ticket Resolve'
      self.comment.append(comment)
+     Ticket.update_stadistic_tickes(self.status)
 
   # function to reopen ticket
   def reopen_ticket(self, comment):
      self.status = 'Open'
      self.response = 'Ticket Re-Open'
      self.comment.append(comment)
+     Ticket.update_stadistic_tickes(self.status)
+  
+  # Update the Ticket stadistic (total, open , close)
+  def update_stadistic_tickes(self, status):
+     if self.status == "Open":
+        self.num_tickets_open += 1
+     elif status == "Close":
+        self.num_tickets_close += 1 
+
+ 
 
   
   

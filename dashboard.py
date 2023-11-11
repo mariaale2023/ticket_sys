@@ -2,10 +2,11 @@ from ticket import Ticket
 
 print("\n\nWelcome to Service Desk")
 
-# Instance to
+# List of instance for test
 ticket1 = Ticket("MAria", "123",  "maria@maria.cl", "Printer")
 ticket2 = Ticket("Ale", "234",  "ale@ale.cl", "Windows")
 ticket3 = Ticket("Jorge", "234",  "jorge@Jorge.cl", "Office365")
+# Close ticket test
 ticket4_close = Ticket("George", "234",  "George@George.cl", "Router Internet")
 ticket4_close.status = "Close"
 ticket4_close.response = "Test response to close ticket"
@@ -103,7 +104,13 @@ while True:
         print(f"\nInvalid ticket number: {input_number_ticket}\n")
         print("\n--------------------------------\n")
          
-     
+  elif user_action == "5":
+    print("--------------------------------\n"
+          "Statistics:\n"
+          f"Number of tickets submitted: {Ticket.num_tickets_s}\n"
+          f"Number of resolved tickets: {Ticket.num_tickets_resolved}\n"
+          f"Number of open tickets: {Ticket.num_tickets_open}\n"
+          "--------------------------------\n")
 
 
 
