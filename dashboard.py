@@ -72,12 +72,12 @@ while True:
   elif user_action == "3":
      print("--------------------------------\n")
      input_number_ticket = input("Insert the number of ticket?\n")
-     solve_coment = input("Insert your coment about your resolution\n")
      input_number_ticket = int(input_number_ticket)
 
      # Check if the ticket number is within the valid range. 
      #remember the list of ticket start from 2000
      if 0 <= input_number_ticket - 2000 < len(Ticket.list_of_tickets):
+        solve_coment = input("Insert your coment about your resolution\n")
         Ticket.list_of_tickets[input_number_ticket - 2000 ].resolve_ticket(solve_coment) 
         print(f"\nTicket {input_number_ticket} resolved successfully.\n")
      else:
