@@ -8,7 +8,7 @@ ticket2 = Ticket("Ale", "234",  "ale@ale.cl", "Windows")
 ticket3 = Ticket("Jorge", "234",  "jorge@Jorge.cl", "Office365")
 # Close ticket test
 ticket4_close = Ticket("George", "234",  "George@George.cl", "Router Internet")
-ticket4_close.status = "Close"
+# ticket4_close.status = "Close"
 ticket4_close.resolve_ticket("Test response to close ticket")
 ticket4_close.response = "Test response to close ticket"
 ticket4_close.comment= ['Test comment to close ticket']
@@ -99,7 +99,8 @@ while True:
         print(f"\nThis Ticket is already Open: {input_number_ticket}\n")
         print("\n--------------------------------\n")
      else:
-        print(f"It is an invalid number: {input_number_ticket}")
+        print("\n--------------------------------\n"
+              f"\nThe number {input_number_ticket} is an invalid ticket number\n")
          
   elif user_action == "5":
      statistics = Ticket.get_statistics()

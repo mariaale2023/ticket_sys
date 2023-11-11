@@ -79,3 +79,7 @@ class Ticket:
             "num_tickets_submitted": cls.num_tickets_close + cls.num_tickets_open,
             "num_tickets_resolved": cls.num_tickets_close,
             "num_tickets_open": cls.num_tickets_open}
+
+
+# TODO check in the future , not for this assesment, how I can eliminate the @classmethid, to do more simple.
+# hint: not the ticket4_close is close by the method and not because status = close  
