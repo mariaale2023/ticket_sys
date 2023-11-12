@@ -50,9 +50,10 @@ class Ticket:
 
   # create password new password
   def new_password(self):
-     random_five_numbers = random.randint(1000000,9999999)
-     password = f'{self.user_name}{random_five_numbers}'
-     return password
+    #  random_five_numbers = random.randint(1000000,9999999)
+    #  password = f'{self.user_name}{random_five_numbers}'
+    password = f'{self.user_staff_id[:2]}{self.user_name[:3]}'
+    return password
   
 
   # function to respond ticket
