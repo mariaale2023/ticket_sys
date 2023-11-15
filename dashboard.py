@@ -8,7 +8,7 @@ ticket2 = Ticket("Ale", "234",  "ale@ale.cl", "Windows")
 ticket3 = Ticket("Jorge", "234",  "jorge@Jorge.cl", "Office365")
 # Close ticket test
 ticket4_close = Ticket("George", "234",  "George@George.cl", "Router Internet")
-# ticket4_close.status = "Close"
+ticket4_close.status = "Close"
 ticket4_close.resolve_ticket("Test response to close ticket")
 ticket4_close.response = "Test response to close ticket"
 ticket4_close.comment= ['Test comment to close ticket']

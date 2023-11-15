@@ -30,12 +30,6 @@ class Ticket:
     # Append new ticket to the list of tickets
     Ticket.list_of_tickets.append(self)
 
-    # Instance-specific initialization
-    # self.num_tickets_close = 0
-    # self.num_tickets_open = 1  # Initial value for an open ticket
-
-
-    
   
   # Show the ticket 
   def __str__(self):
