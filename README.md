@@ -23,10 +23,11 @@ This is a simple prototype of a Help Desk Ticketing System. The system allows us
    git clone git@github.com:mariaale2023/ticket_sys.git
    ```
 2. **Navigate to the Project Directory:**
-   `cd help-desk-ticketing-system`
+   `cd ticket_sys`
+   `cd dashboard.py`
 
 3. **Run the Program:**
-   `/usr/bin/python3 dashboard.py`
+   `/dashboard.py`
 
 ## Project Structure
 
